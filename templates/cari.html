@@ -1,0 +1,38 @@
+{% extends "base.html"%}
+{%block content%}
+<div class="container mt-5 p-5">
+    <hi class="text container fw-blood">CARI DATA</hi>
+        <div class="row mt-5">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                <form action="http://localhost:5000/cari" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Masukan Provinsi</label>
+                        <input type="text" class="form-control" name="Cari">
+                    </div>
+                    <button type="submit" class="btn btn-info">Cari</button>
+                </form>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+        <div class="container mt-2">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {%for i in rs%}
+                <div class="col">
+                    <div class="card" style="width: 35rem;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{i['name']}}</h5>
+                            <h6 class="card-subtitle mb-2 test muted">{{i['province']}}</h6>
+                            <div class=" card-text small">
+                                Alamat : {{i['address']}}<br>
+                                Wilayah :{{i['region']}}<br>
+                                No.Tlp : {{i['phone']}}<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}

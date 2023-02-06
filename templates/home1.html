@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container mt-5 mb-5 p-5">
+    <div class="row text-center">
+        <div class="col-sm">
+        <h1 class="text-center fw-blod">DAFTAR RUJUKAN RUMAH SAKIT COVID-19</h1>
+        <p>DI INDONESIA</p>
+    </div>
+    </div>
+    <div class="row align-items-center text-center">
+
+    </div>
+    <div class="dropdown droped align-items-left text-left">
+        <button class="btn btn-info dropdown-toggle"type="button"id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Daftar Anggota
+        </button>
+        <ul class="dropdown-menu p-4 dropdown-menu-center" aria-labelledby="dropdownMenuButton">
+            <li>Zaky Ahdzan Nirwanda (21102137)</li>
+            <li>Luthfi Fauzan (21102148)</li>
+            <li>Ikhtifadudin Al Ghifari Rokhman (21102210)</li>
+        </ul>
+    </div>
+</div>
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {%for i in rs%}
+                <div class="col">
+                    <div class="card" style="width: 35rem;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{i['name']}}</h5>
+                            <h6 class="card-subtitle mb-2 test muted">{{i['province']}}</h6>
+                            <div class=" card-text small">
+                                Alamat : {{i['address']}}<br>
+                                Wilayah:{{i['region']}}<br>
+                                No.Tlp : {{i['phone']}}<br>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% endblock %}
